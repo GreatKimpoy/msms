@@ -1,5 +1,8 @@
 @extends('admin.layouts.app')
 
+@section('title')
+  {{"Technicians"}}
+@endsection
 
 
 
@@ -15,7 +18,7 @@
 @section('content-body')
 <section class="content-header">
   <div class="container-fluid">
-    <div class="box col-sm-12" id="box">
+    <div class="box col-sm-12 box-primary" id="box">
       <div class="box-block pt-3" id="box">
         <div class="box-header" id="box"><strong><h4> Customer Information Form </h4></strong>
         </div>
@@ -23,6 +26,7 @@
             <form method="post" action="{{ url('technician') }}" class="form-horizontal">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <input type="hidden" name="type" value="technician" />
+                @include('errors.alert')
                 @include('admin.maintenance.technician.form')
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">Save</button>

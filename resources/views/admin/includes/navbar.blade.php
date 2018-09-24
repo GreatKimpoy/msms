@@ -2,11 +2,11 @@
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="" class="logo">
+    <a href="" class="logo navbar-brand">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>i</b>MN</span>
+      <span class="logo-mini"><strong><b>i</b>MN</strong></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>i</b>Manage</span>
+      <span class="logo-lg">  <strong><b>i</b>Manage</strong></span>
     </a>
 
     <!-- Header Navbar -->
@@ -24,14 +24,14 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="{{asset ('dist/img/avatar.png')}}" class="user-image" alt="User Image">
+              <img src="{{asset ('dist/img/midsouth.png')}}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">Admin</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="{{asset ('dist/img/avatar.png')}}" class="img-circle" alt="User Image">
+                <img src="{{asset ('dist/img/midsouth.png')}}" class="img-circle" alt="User Image">
 
                 <p>
                   Admin

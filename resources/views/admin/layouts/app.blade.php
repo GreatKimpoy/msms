@@ -5,22 +5,23 @@
 		@yield('styles-include')
 	</head>
 	<body class="hold-transition skin-blue sidebar-mini">
-	
+		<div class="wrapper">
+			<!-- Navigation -->
+			<section id="navigation">
+			@include('admin.includes.navbar')
+			</section>
+			<!-- Sidebar -->
+			<section id="sidebar">
+			@include('admin.includes.left-sidebar')
+			</section> <!-- Sidebar -->
 
-		<!-- Navigation -->
-		<section id="navigation">
-		@include('admin.includes.navbar')
-		</section>
-		<!-- Sidebar -->
-		<section id="sidebar">
-		@include('admin.includes.left-sidebar')
-		</section> <!-- Sidebar -->
+			<!-- Content -->
+			<section class="content-wrapper">
+			@yield('content-header')
+			@yield('content-body')
+			</section> <!-- Content -->
+		</div>
 
-		<!-- Content -->
-		<section class="content-wrapper">
-		@yield('content-header')
-		@yield('content-body')
-		</section> <!-- Content -->
 
 		<footer id="footer-navigation">
 		@include('admin.includes.essential-js')
@@ -28,10 +29,7 @@
 
 
 		@yield('scripts-include')
-	</body>
 
+</body>
 
-	<footer>
-		@include('admin.includes.footer')
-	</footer>
 </html>

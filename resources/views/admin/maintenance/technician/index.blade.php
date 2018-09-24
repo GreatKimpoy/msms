@@ -1,5 +1,10 @@
 @extends('admin.layouts.app')
 
+@section('title')
+  {{"Technicians"}}
+@endsection
+
+
 @section('styles-include')
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
@@ -18,13 +23,14 @@
 @section('content-body')
 <section class="content-header">
   <div class="container-fluid">
-    <div class="box col-sm-12 mt-3">
+    <div class="box box-primary col-sm-12 mt-3">
       <div class="box-block pt-3">
         <div class="box-body">
           <a type="button" id="new" href="{{ url('technician/create') }}"  class="btn btn-success btn-sm pull-right">
             <i class="fa fa-plus"></i> <strong> NEW RECORD </strong>  
           </a>
         </div>
+          @include('notification.alert')
         <table id="mechanicsTable" class="table table-bordered table-hover">
           <thead>
             <tr> 
@@ -34,7 +40,7 @@
                 <th>Contact</th>
                 <th>Email</th>
                 <th>Specialization</th>
-                <th></th>
+                <th>Actions</th>
             </tr>
           </thead>
         </table>
@@ -66,7 +72,7 @@
 						    "<'row'<'col-sm-5'i><'col-sm-7'p>>",
 			"processing": true,
       serverSide: true,
-      ajax: "{{ url('mechanic') }}",
+      ajax: "{{ url('technician') }}",
       columns: [
           { data: "image" },
           { data: "full_name" },
@@ -76,7 +82,8 @@
           { data: "specializations" },
           { data: function(callback){
             return `
-              <a href="{{ url("mechanic") }}` + '/' + callback.id + `/edit" class="btn btn-warning"><i class="fa fa-edit"></i><strong>Edit</strong></a>
+            <a href="{{ url("technician") }}` + '/' + callback.id + `" class="btn btn-success"><i class="fa fa-edit"></i><strong>View</strong></a>
+              <a href="{{ url("technician") }}` + '/' + callback.id + `/edit" class="btn btn-warning"><i class="fa fa-edit"></i><strong>Edit</strong></a>
              
             `
           } },
@@ -107,7 +114,7 @@
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               },
               type: 'delete',
-              url: '{{ url("mechanic") }}' + "/" + id,
+              url: '{{ url("technician") }}' + "/" + id,
               data: {
                 'id': id
               },

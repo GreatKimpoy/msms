@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Maintenance;
 
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use DB;
+use Validator;
+use App\Customer;
 
 class CustomerController extends Controller
 {
@@ -14,14 +18,18 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         
+        if( $request->ajax() ) {
+            $customers = Customer::all();
+            return datatables($customers)->toJson();
+        }
         return view( $this->viewBasePath . '.customer.index');
     }
 
-    /**
+    /**z
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

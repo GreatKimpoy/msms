@@ -20,8 +20,15 @@ Route::resource('admin/dashboard', 'DashboardController');
 
 Route::namespace('Maintenance')->group(function() {
 
+
     Route::resource('customer', 'CustomerController');
     Route::resource('technician','TechnicianController');
-
+    Route::resource('model','VehicleModelsController');
+    Route::resource('inspection','InspectionController');
+    Route::resource('category','ServiceCategoryController');
+    Route::resource('service','ServiceListController');
+    
+    
+  
     
 });

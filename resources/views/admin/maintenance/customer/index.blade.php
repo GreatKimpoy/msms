@@ -1,5 +1,10 @@
 @extends('admin.layouts.app')
 
+@section('title')
+  {{"Customer"}}
+@endsection
+
+
 
 @section('styles-include')
 
@@ -19,7 +24,7 @@
 @section('content-body')
 <section class="content-header">
   <div class="container-fluid">
-    <div class="box col-sm-12 mt-3">
+    <div class="box box-primary col-sm-12 mt-3">
       <div class="box-block pt-3">
         <div class="box-body">
          
@@ -33,7 +38,7 @@
                 <th>Address</th>
                 <th>Contact</th>
                 <th>Email</th>
-                <th></th>
+                <th>Actions</th>
             </tr>
           </thead>
         </table>

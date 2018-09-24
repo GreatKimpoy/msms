@@ -13,11 +13,12 @@
 
     #tech-pic{
         margin-top: 10px;
-        margin-left: 510px;
+        margin-left: 450px;
     }
 
     .form{
-        margin-left: 450px;
+        margin-left: 400px;
+        margin-top:  
     }
 
 </style>
@@ -153,9 +154,9 @@
     
       <div class="col-md-4">
             <div class="row">
-                <center><img class="img-responsive" id="tech-pic" src="{{URL::asset('material/dist/img/avatar.png')}}" style="max-width:150px; background-size: contain" /></center>
+                <center><img class="img-responsive" id="tech-pic" src="{{asset ('dist/img/avatar.png')}}" style="max-width:150px; background-size: contain" /></center>
                 <center class="form">
-                            {!! Form::label('pic', 'Technician Picture') !!}
+                            
                             {!! Form::file('image',[
                                 'class' => 'form-control',
                                 'name' => 'image',
@@ -176,25 +177,24 @@
                 name="specializations[]" 
                 class="form-control select2"
                 id="form" 
-                multiple>
-                @foreach($categories as $category)
-                <option
-                    value="{{ $category->id }}"
-                    @if( old('specializations') )
-                        @if( in_array( $category->id, old('specializations') ) )
-                        selected
-                        @endif    
-                    @elseif(
-                        isset( $technician->specializations_id ) && 
-                        count( $technician->specializations_id ) > 0 && 
-                        in_array( $category->id, $technician->specializations_id ) )
-                        selected
-                    @endif
-                    >
-                    {{ $category->name }}
-                </option>
-                @endforeach
+                multiple= "multiple"
+                data-placeholder="Select Specialization">
             </select>
         </div>
     </div>
 </div>
+
+
+
+
+
+@section('scripts-include')
+
+<script>
+    $(function(){
+         $('.select2').select2();
+
+    })
+</script>
+
+@endsection
